@@ -1,0 +1,37 @@
+{
+  "categories": [
+    {
+      "shoes": [
+        {
+          "pId": "1",
+          "pName": "Tapered comfort fit jeans",
+          "pPrice": "50 LE",
+          "pSize": "XL",
+          "pCategory": "shoes"
+        }
+      ]
+    },
+    {
+      "shirts": [
+        {
+          "pId": "1",
+          "pName": "Tapered comfort fit jeans",
+          "pPrice": "50 LE",
+          "pSize": "XL",
+          "pCategory": "shirts"
+        }
+      ]
+    },
+    {
+      "bags": [
+        {
+          "pId": "1",
+          "pName": "Tapered comfort fit jeans",
+          "pPrice": "50 LE",
+          "pSize": "XL",
+          "pCategory": "bags"
+        }
+      ]
+    }
+  ]
+}
