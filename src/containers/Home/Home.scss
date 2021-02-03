@@ -1,32 +1,14 @@
 .home {
-  overflow-x: hidden;
-  .news {
-    padding-top: 30px;
-    padding-left: 40px;
-    padding-right: 40px;
-
-    .news_header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 30px;
-      align-items: center;
-      p {
-        font-size: 20px;
-        font-weight: bold;
-        color: #0c0c0c;
-        margin: 0;
-      }
-      a {
-        text-decoration: none;
-        display: block;
-        background: #fff;
-        color: #0c0c0c;
-        border-radius: 5px;
-        height: 40px;
-        line-height: 40px;
-        width: 90px;
-        text-align: center;
-        border: 1px solid #dad7d7;
+  .slick-slide > div {
+    margin: 0 15px;
+  }
+  .categories {
+    .category-contianer {
+      margin-bottom: 100px;
+      .ctegory-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
       }
     }
   }

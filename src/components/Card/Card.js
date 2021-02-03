@@ -1,17 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import "./Card.scss" 
+import { Col, Row } from 'reactstrap';
+import "./Card.scss"
 const Card = (props) => {
     return (
-        <div className="news_card">
-            <img src={props.urlToImage}/>
-             <h3>{props.title}</h3>
-             <p>{props.publishedAt}</p>
+        <div className="product-card">
+            <img src={props.urlToImage} />
+            <h3>{props.pName}</h3>
+            <Row>
+                <Col xs="6">
+                    <p>{props.pPrice}</p>
+
+                </Col>
+                <Col xs="6" className="text-right">
+                    <p>{props.pSize}</p>
+                </Col>
+            </Row>
             <p></p>
         </div>
     );
 }
- 
-Card.propTypes = {};
- 
+
+
 export default Card;

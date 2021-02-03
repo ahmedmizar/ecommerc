@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import { Row, Col } from "reactstrap";
 import "./Header.scss";
 class Header extends Component {
     render() {
         const settings = {
-            dots: true,
+            dots: false,
             infinite: true,
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -18,16 +19,49 @@ class Header extends Component {
         return (
             <header>
 
-                <Slider {...settings}>
+                <Slider {...settings} className="header-slider">
                     <div>
-                        <img src={require("../../assests/images/slider4.jpg")} />
+                        <div className="sider-container">
+                            <div className="container">
+                                <Row>
+                                    <Col>
+                                        <div className="slider-contain">
+                                            <img src={require("../../assests/images/slider1.jpg")} />
+                                        </div>
+                                    </Col>
+                                </Row>
+                            </div>
+                        </div>
                     </div>
                     <div>
-                        <img src={require("../../assests/images/slider2.jpg")} />
+                        <div className="sider-container">
+                            <div className="container">
+                                <Row>
+                                    <Col>
+                                        <div className="slider-contain">
+                                            <img src={require("../../assests/images/slider2.jpg")} />
+                                        </div>
+                                    </Col>
+                                </Row>
+                            </div>
+                        </div>
                     </div>
                     <div>
-                        <img src={require("../../assests/images/slider3.jpg")} />
+                        <div className="sider-container">
+                            <div className="container">
+                                <Row>
+                                    <Col>
+                                        <div className="slider-contain">
+
+                                            <img src={require("../../assests/images/slider3.jpg")} />
+
+                                        </div>
+                                    </Col>
+                                </Row>
+                            </div>
+                        </div>
                     </div>
+
 
                 </Slider>
             </header>

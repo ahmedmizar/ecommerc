@@ -1,9 +1,67 @@
 {
   "categories": [
     {
-      "shoes": [
+      "id": 1,
+      "categoryTitle": "shoes",
+      "products": [
         {
           "pId": "1",
+          "pName": "Tapered comfort fit jeans",
+          "pPrice": "50 LE",
+          "pSize": "XL",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "2",
+          "pName": "Tapered comfort fit",
+          "pPrice": "20 LE",
+          "pSize": "L",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "3",
+          "pName": "Tapered comfort",
+          "pPrice": "100 LE",
+          "pSize": "XL",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "4",
+          "pName": "Tapered",
+          "pPrice": "10 LE",
+          "pSize": "sm",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "5",
+          "pName": "comfort",
+          "pPrice": "25 LE",
+          "pSize": "m",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "6",
+          "pName": "fit jeans",
+          "pPrice": "500 LE",
+          "pSize": "XL",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "7",
+          "pName": "Tajeans",
+          "pPrice": "10 LE",
+          "pSize": "L",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "8",
+          "pName": "Tapered comfort",
+          "pPrice": "200 LE",
+          "pSize": "XxL",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "9",
           "pName": "Tapered comfort fit jeans",
           "pPrice": "50 LE",
           "pSize": "XL",
@@ -12,24 +70,140 @@
       ]
     },
     {
-      "shirts": [
+      "id": 2,
+      "categoryTitle": "shirts",
+      "products": [
         {
           "pId": "1",
           "pName": "Tapered comfort fit jeans",
           "pPrice": "50 LE",
           "pSize": "XL",
-          "pCategory": "shirts"
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "2",
+          "pName": "Tapered comfort fit",
+          "pPrice": "20 LE",
+          "pSize": "L",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "3",
+          "pName": "Tapered comfort",
+          "pPrice": "100 LE",
+          "pSize": "XL",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "4",
+          "pName": "Tapered",
+          "pPrice": "10 LE",
+          "pSize": "sm",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "5",
+          "pName": "comfort",
+          "pPrice": "25 LE",
+          "pSize": "m",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "6",
+          "pName": "fit jeans",
+          "pPrice": "500 LE",
+          "pSize": "XL",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "7",
+          "pName": "Tajeans",
+          "pPrice": "10 LE",
+          "pSize": "L",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "8",
+          "pName": "Tapered comfort",
+          "pPrice": "200 LE",
+          "pSize": "XxL",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "9",
+          "pName": "Tapered comfort fit jeans",
+          "pPrice": "50 LE",
+          "pSize": "XL",
+          "pCategory": "shoes"
         }
       ]
     },
     {
-      "bags": [
+      "id": 3,
+      "categoryTitle": "bags",
+      "products": [
         {
           "pId": "1",
           "pName": "Tapered comfort fit jeans",
           "pPrice": "50 LE",
           "pSize": "XL",
-          "pCategory": "bags"
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "2",
+          "pName": "Tapered comfort fit",
+          "pPrice": "20 LE",
+          "pSize": "L",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "3",
+          "pName": "Tapered comfort",
+          "pPrice": "100 LE",
+          "pSize": "XL",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "4",
+          "pName": "Tapered",
+          "pPrice": "10 LE",
+          "pSize": "sm",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "5",
+          "pName": "comfort",
+          "pPrice": "25 LE",
+          "pSize": "m",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "6",
+          "pName": "fit jeans",
+          "pPrice": "500 LE",
+          "pSize": "XL",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "7",
+          "pName": "Tajeans",
+          "pPrice": "10 LE",
+          "pSize": "L",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "8",
+          "pName": "Tapered comfort",
+          "pPrice": "200 LE",
+          "pSize": "XxL",
+          "pCategory": "shoes"
+        },
+        {
+          "pId": "9",
+          "pName": "Tapered comfort fit jeans",
+          "pPrice": "50 LE",
+          "pSize": "XL",
+          "pCategory": "shoes"
         }
       ]
     }

@@ -1,60 +1,94 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { fetchNews } from "../../appRedux/actions/News"
+import { fetchCategories } from "../../appRedux/actions/Categories"
 import { Link } from 'react-router-dom';
-import { Row, Col } from 'reactstrap';
+
+import { withRouter } from 'react-router';
 import "./Home.scss"
-import moment from "moment";
-import data from "../../data/news.json";
 import Card from '../../components/Card/Card';
 import Slider from "react-slick";
-import axios from "axios"
 import Header from '../../components/Header/Header';
 class Home extends Component {
-    compare = (a, b) => {
-        if (a.publishedAt > b.publishedAt) {
-            return -1;
-        }
-        if (a.publishedAt < b.publishedAt) {
-            return 1;
-        }
-        return 0;
-    }
+
     componentDidMount() {
-        axios.get("http://localhost:3001/categories").then(res => {
-            console.log(res)
-        })
+        this.props.fetchCategories()
     }
     render() {
+        const { categories, loading } = this.props;
+        console.log(categories)
+        var settings = {
+            dots: false,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            initialSlide: 0,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        initialSlide: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        };
         // onClick={() => this.props.history.push("/singleNews", Item)}
         return (
             <div className="home">
                 <Header />
-                {/* <header>
-                    <img src={require("../../assests/images/header.jpg")} />
-                    <div className="header_info">
-                        <h3>Match 23</h3>
-                        <p>T20 world cup 2020</p>
-                    </div>
-                    <div className="over_lay"></div>
-                </header> */}
-                <div className="news">
-                    <div className="news_header">
+
+                <div className="categories">
+                    {/* <div className="news_header">
                         <p>Recntly Added</p>
                         <Link to="/allNews">Show all</Link>
-                    </div>
-                    <Row>
-                        {data.articles.sort(this.compare).slice(0, 8).map((Item, key) => {
+                    </div> */}
+                    <div className="container">
+                        {categories && categories.map(category => {
                             return (
-                                <Col sm="12" md="6" xl="3" key={key} onClick={() => this.props.history.push("/singleNews", Item)}>
-                                    <Card
-                                        title={Item.title} urlToImage={Item.urlToImage}
-                                        publishedAt={moment(Item.publishedAt).format('MMM DD/YYYY, h:mm a')}>
-                                    </Card>
-                                </Col>
+                                <div className="category-contianer" key={category.id}>
+                                    <div className="ctegory-header">
+
+                                        <h3>{category.categoryTitle}</h3>
+                                        <Link to={`${this.props.match.url}category/${category.id}`} className="show-all">Show All</Link>
+                                    </div>
+                                    <Slider {...settings} className="products">
+                                        {category.products && category.products.map(product => {
+                                            return (
+                                                <div key={product.pId}>
+
+                                                    <Card
+                                                        pName={product.pName} urlToImage={require("../../assests/images/product1.jpg")}
+                                                        pPrice={product.pPrice}
+                                                        pSize={product.pSize}>
+                                                    </Card>
+
+                                                </div>
+                                            )
+                                        })}
+
+                                    </Slider>
+                                </div>
                             )
                         })}
-                    </Row>
+                    </div>
                 </div>
             </div>
         );
@@ -63,14 +97,15 @@ class Home extends Component {
 
 const mapDispachToProps = (dispach) => {
     return {
-        fetchNews: () => dispach(fetchNews()),
+        fetchCategories: () => dispach(fetchCategories()),
     };
 };
 const mapStateToProps = (state) => {
     console.log(state)
     return {
-        news: state.news.news || [],
+        categories: state.categories.categories || [],
+        loading: state.categories.loading
 
     };
 };
-export default connect(mapStateToProps, mapDispachToProps)(Home);
+export default connect(mapStateToProps, mapDispachToProps)(withRouter(Home));

@@ -1,8 +1,12 @@
-.news_card {
-  cursor: pointer;
+.product-card {
+  background: #fff;
+  padding: 15px;
   img {
-    width: 86%;
-    height: 230px;
+    max-height: 210px;
+    line-height: 210px;
+    margin: auto;
+    width: 100%;
+    max-width: 100%;
   }
   h3 {
     font-size: 20px;

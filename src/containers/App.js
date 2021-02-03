@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Route, Switch, Router, BrowserRouter } from "react-router-dom";
 import Layout from "../hos/Layout/Layout";
 import Home from "./Home/Home";
-import AllNews from "./AllNews/AllNews";
-import SingleNews from "./SingleNews/SingleNews";
+import Category from "./Category/Category";
+
 
 class App extends Component {
 
@@ -22,15 +22,11 @@ class App extends Component {
               path="/home"
               component={Home}
             />
+            
             <Route
               exact
-              path="/allNews"
-              component={AllNews}
-            />
-            <Route
-              exact
-              path="/singleNews"
-              component={SingleNews}
+              path="/category/:id"
+              component={Category}
             />
           </Layout>
         </Switch>

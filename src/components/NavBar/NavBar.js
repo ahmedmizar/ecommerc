@@ -1,61 +1,62 @@
 import React, { Component } from "react";
-import { ReactComponent as CloseMenu } from "../../assests/Icons/x.svg";
-import { ReactComponent as MenuIcon } from "../../assests/Icons/menu.svg";
-import { Input, FormGroup } from "reactstrap"
-import { Link } from 'react-router-dom';
+
 import "./NavBar.scss";
+import { ReactComponent as CloseMenu } from '../../assests/Icons/x.svg';
+import { ReactComponent as MenuIcon } from '../../assests/Icons/menu.svg';
+import { NavLink, Link } from 'react-router-dom';
+
 
 class NavBar extends Component {
+  listener = null;
   state = {
     click: false,
-    searchValue: ""
-  }
+    nav: false,
+    flag: null,
+  };
   handleClick = () => {
-    this.setState({ click: !this.state.click })
-  }
+    this.setState({ click: !this.state.click });
+  };
   closeMobileMenu = () => {
-    this.setState({ click: false })
-  }
+    this.setState({ click: false });
+  };
   render() {
     return (
-      <div className="nav-bar">
-        <div className="nav-left">
+      <div className="responsive_nav">
+        <div className="container">
           <div className="logo-nav">
-            <div className="logo-container">
-              {/* <a href="#"><img src={require("../../assests/images/logo.png")} /></a> */}
-            </div>
+            <ul className={this.state.click ? 'nav-options active' : 'nav-options'}>
+              <div className="right_menu">
+                <li>
+                  <NavLink to="/" className="logo_link">
+                    <img
+                      className="logo_header"
+                      src={require('../../assests/Icons/logo_nav.png')}
+                    />
+                  </NavLink>
+                </li>
+                <li className="option" onClick={this.closeMobileMenu}>
+                  <NavLink exact to="/" activeClassName="active">
+                    Home
+									</NavLink>
+                </li>
+                <li className="option" onClick={this.closeMobileMenu}>
+                  <NavLink exact to="/contact-us">
+                    Contact us
+									</NavLink>
+                </li>
 
-            <ul className={this.state.click ? "nav-options active" : "nav-options"}>
-              <li className="option" onClick={this.closeMobileMenu}>
-                <Link to="/">Home</Link>
-              </li>
-              <li className="option" onClick={this.closeMobileMenu}>
-                <Link to="/allNews">Category</Link>
-              </li>
-              <li className="option" onClick={this.closeMobileMenu}>
-                <Link to="/allNews">Contact us</Link>
-              </li>
+              </div>
+
             </ul>
           </div>
-          <div className="mobile-menu" onClick={this.handleClick}>
-            {this.state.click ? (
-              <CloseMenu className="menu-icon" />
-            ) : (
-                <MenuIcon className="menu-icon" />
-              )}
-          </div>
         </div>
-        {/* <ul className="nav-right">
-          <li onClick={this.closeMobileMenu}>
-            <a href="#">
-              <i className="fa fa-bell-o" aria-hidden="true"></i>
-            </a>
-          </li>
-
-        </ul> */}
+        <div className="mobile-menu" onClick={this.handleClick}>
+          {this.state.click ? <CloseMenu className="menu-icon" /> : <MenuIcon className="menu-icon" />}
+        </div>
       </div>
-    )
+    );
   }
-};
+}
 
-export default NavBar;
+
+export default NavBar
