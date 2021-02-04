@@ -31,7 +31,7 @@
       li {
         display: inline-block;
         padding-right: 30px;
-        @media (max-width: 768px) {
+        @media (max-width: 480px) {
           display: block;
           padding-right: 0;
         }

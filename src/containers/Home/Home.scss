@@ -1,8 +1,19 @@
 .home {
-  .slick-slide > div {
-    margin: 0 15px;
+  .products {
+    .slick-slide > div {
+      margin: 0 15px;
+    }
+    .slick-next {
+      right: -5px;
+      z-index: 1;
+    }
+    .slick-prev {
+      left: -5px;
+      z-index: 1;
+    }
   }
   .categories {
+    padding-top: 60px;
     .category-contianer {
       margin-bottom: 100px;
       .ctegory-header {

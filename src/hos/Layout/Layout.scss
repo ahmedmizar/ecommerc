@@ -1,6 +1,8 @@
 main {
   margin-top: 90px;
-  background: #eef2f5;
+  @media (max-width: 480px) {
+    margin-top: 60px;
+  }
   .slick-next,
   .slick-prev {
     width: 30px;

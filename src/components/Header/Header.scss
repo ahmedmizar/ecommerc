@@ -1,6 +1,4 @@
 header {
-  height: 500px;
-
   .header-slider {
     background-size: cover;
     background-position: 50%;
@@ -8,9 +6,15 @@ header {
 
     .sider-container {
       height: 75vh;
+      @media (max-width: 1365.98px) and (min-width: 1024px) {
+        height: 65vh;
+      }
+      @media (max-width: 1024px) {
+        height: 50vh;
+      }
       .slider-contain {
         width: 100%;
-        height: 75vh;
+        height: 100%;
         display: flex;
         align-items: center;
       }
@@ -18,7 +22,7 @@ header {
   }
   img {
     width: 100%;
-    height: 500px;
+    height: 100%;
   }
   .slick-prev {
     left: 10px;
@@ -28,5 +32,4 @@ header {
     right: 10px;
     z-index: 5;
   }
-
 }

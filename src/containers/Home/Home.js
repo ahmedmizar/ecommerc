@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { fetchCategories } from "../../appRedux/actions/Categories"
 import { Link } from 'react-router-dom';
-
-import { withRouter } from 'react-router';
 import "./Home.scss"
 import Card from '../../components/Card/Card';
 import Slider from "react-slick";
@@ -30,7 +28,6 @@ class Home extends Component {
                         slidesToShow: 3,
                         slidesToScroll: 3,
                         infinite: true,
-                        dots: true
                     }
                 },
                 {
@@ -50,16 +47,13 @@ class Home extends Component {
                 }
             ]
         };
-        // onClick={() => this.props.history.push("/singleNews", Item)}
+
         return (
             <div className="home">
                 <Header />
 
                 <div className="categories">
-                    {/* <div className="news_header">
-                        <p>Recntly Added</p>
-                        <Link to="/allNews">Show all</Link>
-                    </div> */}
+
                     <div className="container">
                         {categories && categories.map(category => {
                             return (
@@ -108,4 +102,4 @@ const mapStateToProps = (state) => {
 
     };
 };
-export default connect(mapStateToProps, mapDispachToProps)(withRouter(Home));
+export default connect(mapStateToProps, mapDispachToProps)(Home);

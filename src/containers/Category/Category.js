@@ -21,20 +21,11 @@ class Category extends Component {
         let productsList = this.props.category && this.props.category.products;
         let showProducts = productsList.slice(0, 6)
         this.setState({ showProducts, products: productsList })
-        // let news = this.sortedNews.slice(0, 8);
         window.addEventListener('scroll', this.loadMore, true);
-        // this.setState({ news });
+      
     }
 
 
-    // componentDidMount() {
-
-    //     // this.sortedNews = data.articles.sort(this.compare);
-
-    //     let news = this.sortedNews.slice(0, 8);
-
-    //     this.setState({ news });
-    // }
 
 
 
@@ -57,9 +48,6 @@ class Category extends Component {
     loadMore = () => {
 
         if (window.innerHeight + document.documentElement.scrollTop === document.scrollingElement.scrollHeight) {
-            debugger
-
-            console.log(this.state)
             if (this.state.products.length > this.state.showProducts.length) {
 
                 this.state.showProducts.push(...this.state.products.slice(this.state.showProducts.length, this.state.showProducts.length + 6))
