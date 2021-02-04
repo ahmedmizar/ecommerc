@@ -24,7 +24,7 @@ export const fetchCategoriesFailure = (error) => {
 export const fetchCategories = () => {
     return (dispatch) => {
         dispatch(fetchCategoriesRequest());
-        axios.get("http://localhost:3005/categories").then((response) => {
+        axios.get("http://localhost:3001/categories").then((response) => {
             dispatch(fethCategoriesSuccess(response.data));
         });
     };

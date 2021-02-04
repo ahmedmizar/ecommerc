@@ -7,12 +7,70 @@ import Slider from "react-slick";
 import { Link } from 'react-router-dom';
 import "./Category.scss"
 class Category extends Component {
-    componentDidMount() {
-        this.props.fetchCategory(this.props.match.params.id)
+    state = {
+        products: [],
+        showProducts: [],
+        model: false
     }
+    toggleModel = () => {
+        this.setState({ model: !this.state.model })
+    }
+    async componentDidMount() {
+        await this.props.fetchCategory(this.props.match.params.id)
+
+        let productsList = this.props.category && this.props.category.products;
+        let showProducts = productsList.slice(0, 6)
+        this.setState({ showProducts, products: productsList })
+        // let news = this.sortedNews.slice(0, 8);
+        window.addEventListener('scroll', this.loadMore, true);
+        // this.setState({ news });
+    }
+
+
+    // componentDidMount() {
+
+    //     // this.sortedNews = data.articles.sort(this.compare);
+
+    //     let news = this.sortedNews.slice(0, 8);
+
+    //     this.setState({ news });
+    // }
+
+
+
+    showMore = () => {
+        const { products, showProducts } = this.state;
+
+        if (products.length > showProducts.length) {
+
+            showProducts.push(...this.products.slice(showProducts.length, showProducts.length + 6))
+            this.setState({ showProducts })
+        }
+
+    }
+
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.loadMore);
+    }
+
+    loadMore = () => {
+
+        if (window.innerHeight + document.documentElement.scrollTop === document.scrollingElement.scrollHeight) {
+            debugger
+
+            console.log(this.state)
+            if (this.state.products.length > this.state.showProducts.length) {
+
+                this.state.showProducts.push(...this.state.products.slice(this.state.showProducts.length, this.state.showProducts.length + 6))
+                this.setState({ showProducts: this.state.showProducts })
+            }
+        }
+    }
+
     render() {
         const { category, loading } = this.props;
-        console.log(this.props.match.params.id)
+        const { products, showProducts } = this.state;
         var settings = {
             dots: true,
             infinite: false,
@@ -47,31 +105,31 @@ class Category extends Component {
                 }
             ]
         };
-        console.log(this.props)
-        const SingleNews = this.props.location.state
+
         return (
             <div className="category">
+                <div className="category-header">
+                    <img src={require("../../assests/images/baner.jpg")} />
+                </div>
                 <Container>
-                    <div className="category-header">
 
-                    </div>
-                    <div className="category-product">
-                        <Slider {...settings} className="products">
-                            {category.products && category.products.map(product => {
-                                return (
-                                    <div key={product.pId}>
+                    <div className="products-container">
 
-                                        <Card
-                                            pName={product.pName} urlToImage={require("../../assests/images/product1.jpg")}
-                                            pPrice={product.pPrice}
-                                            pSize={product.pSize}>
-                                        </Card>
+                        {showProducts && showProducts.map(product => {
+                            return (
+                                <div key={product.pId} className="product">
 
-                                    </div>
-                                )
-                            })}
+                                    <Card
+                                        pName={product.pName} urlToImage={require("../../assests/images/product1.jpg")}
+                                        pPrice={product.pPrice}
+                                        pSize={product.pSize}>
+                                    </Card>
 
-                        </Slider>
+                                </div>
+                            )
+                        })}
+
+
                     </div>
                 </Container>
             </div>

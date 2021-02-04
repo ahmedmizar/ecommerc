@@ -23,9 +23,9 @@ export const fetchCategoryDetailsFailure = (error) => {
 	};
 };
 export const fetchCategory = (id) => {
-	return (dispatch) => {
+	return async (dispatch) => {
 		dispatch(fetchCategoryDetailsRequest());
-		axios.get(`http://localhost:3005/categories/${id}`).then((response) => {
+		await axios.get(`http://localhost:3001/categories/${id}`).then((response) => {
 			dispatch(fethCategoryDetailsSuccess(response.data));
 		});
 	};

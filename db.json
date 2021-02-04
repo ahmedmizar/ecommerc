@@ -207,5 +207,27 @@
         }
       ]
     }
+  ],
+  "contect-us": [
+    {
+      "id": 1,
+      "firstName": "Ahmed",
+      "lastName": "mizar",
+      "mobileNumber": "01112915038",
+      "sex": "male",
+      "notes": "",
+      "address": "",
+      "email": "ahmedmizar71@gmail.com"
+    },
+    {
+      "firstName": "ssss",
+      "lastName": "Mizar",
+      "email": "ahmedmizar1@gmail.com",
+      "sex": "male",
+      "mobileNumber": "01006858026",
+      "address": "Giza",
+      "notes": "ssdqeg hwtrsws",
+      "id": 2
+    }
   ]
 }

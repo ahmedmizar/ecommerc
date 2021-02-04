@@ -3,6 +3,7 @@ import { Route, Switch, Router, BrowserRouter } from "react-router-dom";
 import Layout from "../hos/Layout/Layout";
 import Home from "./Home/Home";
 import Category from "./Category/Category";
+import Contact from "./ContactUS/ContactUS";
 
 
 class App extends Component {
@@ -22,7 +23,11 @@ class App extends Component {
               path="/home"
               component={Home}
             />
-            
+            <Route
+              exact
+              path="/contact-us"
+              component={Contact}
+            />
             <Route
               exact
               path="/category/:id"
