@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import { fetchCategory } from "../../appRedux/actions/CategoryDetails"
 import { Container } from 'reactstrap';
 import Card from '../../components/Card/Card';
-import Slider from "react-slick";
-import { Link } from 'react-router-dom';
 import "./Category.scss"
 class Category extends Component {
     state = {
@@ -21,13 +19,10 @@ class Category extends Component {
         let productsList = this.props.category && this.props.category.products;
         let showProducts = productsList.slice(0, 6)
         this.setState({ showProducts, products: productsList })
+
         window.addEventListener('scroll', this.loadMore, true);
-      
+
     }
-
-
-
-
 
     showMore = () => {
         const { products, showProducts } = this.state;
@@ -40,7 +35,6 @@ class Category extends Component {
 
     }
 
-
     componentWillUnmount() {
         window.removeEventListener('scroll', this.loadMore);
     }
@@ -48,6 +42,7 @@ class Category extends Component {
     loadMore = () => {
 
         if (window.innerHeight + document.documentElement.scrollTop === document.scrollingElement.scrollHeight) {
+
             if (this.state.products.length > this.state.showProducts.length) {
 
                 this.state.showProducts.push(...this.state.products.slice(this.state.showProducts.length, this.state.showProducts.length + 6))
@@ -59,40 +54,7 @@ class Category extends Component {
     render() {
         const { category, loading } = this.props;
         const { products, showProducts } = this.state;
-        var settings = {
-            dots: true,
-            infinite: false,
-            speed: 500,
-            slidesToShow: 4,
-            slidesToScroll: 4,
-            initialSlide: 0,
-            responsive: [
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3,
-                        infinite: true,
-                        dots: true
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2,
-                        initialSlide: 2
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-            ]
-        };
+
 
         return (
             <div className="category">
@@ -106,10 +68,10 @@ class Category extends Component {
                         {showProducts && showProducts.map(product => {
                             return (
                                 <div key={product.pId} className="product">
-
                                     <Card
                                         pName={product.pName} urlToImage={require("../../assests/images/product1.jpg")}
                                         pPrice={product.pPrice}
+                                        productData={product}
                                         pSize={product.pSize}>
                                     </Card>
 

@@ -6,14 +6,25 @@ import "./Home.scss"
 import Card from '../../components/Card/Card';
 import Slider from "react-slick";
 import Header from '../../components/Header/Header';
+import ProductMdal from '../../components/Model/Model';
+
+
 class Home extends Component {
+    state = {
+        openModal: false,
+        productData: null,
+    }
 
     componentDidMount() {
         this.props.fetchCategories()
     }
+
+    handelProductCard = (product) => {
+        this.setState({ openModal: true, productData: product })
+    }
+
     render() {
         const { categories, loading } = this.props;
-        console.log(categories)
         var settings = {
             dots: false,
             infinite: false,
@@ -28,6 +39,7 @@ class Home extends Component {
                         slidesToShow: 3,
                         slidesToScroll: 3,
                         infinite: true,
+                        dots: true
                     }
                 },
                 {
@@ -48,6 +60,7 @@ class Home extends Component {
             ]
         };
 
+
         return (
             <div className="home">
                 <Header />
@@ -66,12 +79,17 @@ class Home extends Component {
                                     <Slider {...settings} className="products">
                                         {category.products && category.products.map(product => {
                                             return (
-                                                <div key={product.pId}>
+                                                <div
+                                                    onClick={() => this.handelProductCard(product)}
+                                                    key={product.pId}>
 
                                                     <Card
-                                                        pName={product.pName} urlToImage={require("../../assests/images/product1.jpg")}
+                                                        pName={product.pName}
+                                                        urlToImage={require("../../assests/images/product1.jpg")}
                                                         pPrice={product.pPrice}
-                                                        pSize={product.pSize}>
+                                                        pSize={product.pSize}
+                                                        productData={product}
+                                                    >
                                                     </Card>
 
                                                 </div>
@@ -84,6 +102,7 @@ class Home extends Component {
                         })}
                     </div>
                 </div>
+                <ProductMdal isOpen={this.state.openModal} productData={this.state.productData} />
             </div>
         );
     }

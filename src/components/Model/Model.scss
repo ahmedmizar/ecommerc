@@ -1,0 +1,35 @@
+.modal-body {
+  padding: 90px 30px;
+}
+
+.product__details {
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  > p {
+    color: #25b28f;
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .product__details--size {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 90px;
+    align-items: center;
+    margin-top: 10px;
+    p {
+      font-size: 16px;
+      margin: 0;
+      span {
+        opacity: 0.5;
+        color: #7a7f8f;
+        font-size: 16px;
+        font-weight: 300;
+      }
+    }
+  }
+}

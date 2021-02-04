@@ -11,7 +11,7 @@ const validate = values => {
     }
     if (!values.lastName) {
         errors.lastName = 'Last Name Required'
-    } else if (values.lastName.length < 3) {
+    } else if (values.lastName.length < 4) {
         errors.lastName = 'Last Name Must be greater than 3 characters'
     }
     if (!values.mobileNumber) {
@@ -19,9 +19,6 @@ const validate = values => {
     } else if ((!/^[0-9]{11,}$/i.test(values.mobileNumber))) {
         errors.mobileNumber = 'Mobile Number must be a number and greater than or equal 11 number'
     }
-    // if (values.sex !== "checked") {
-    // //     errors.sex = 'Required'
-    // // }
 
     return errors
 }
@@ -33,25 +30,6 @@ const warn = values => {
     }
     return warnings
 }
-
-const renderField = ({
-    input,
-    label,
-    type,
-    meta: { touched, error, warning }
-}) => (
-    <div>
-        <label>{label}</label>
-        <div>
-            <input {...input} placeholder={label} type={type} />
-            <div className="error">
-                {touched &&
-                    ((error && <span>{error}</span>) ||
-                        (warning && <span>{warning}</span>))}
-            </div>
-        </div>
-    </div>
-)
 
 const contactForm = props => {
     const { handleSubmit, pristine, reset, submitting } = props
@@ -114,7 +92,7 @@ const contactForm = props => {
 }
 
 export default reduxForm({
-    form: 'contactForm', // a unique identifier for this form
-    validate, // <--- validation function given to redux-form
-    warn // <--- warning function given to redux-form
+    form: 'contactForm',
+    validate,
+    warn
 })(contactForm)
